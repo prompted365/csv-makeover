@@ -17,7 +17,7 @@ def index():
         if file and output_format:
             data = pd.read_csv(file)
             if output_format == 'json':
-                response = data.to_json(orient='records', indent=4)
+                response = data.to_json(orient='records', indent=2)
                 filename = 'output.json'
                 mimetype = 'application/json'
             elif output_format == 'xml':

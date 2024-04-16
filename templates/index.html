@@ -16,7 +16,7 @@
         }
 
         .container {
-            max-width: 500px;
+            max-width: 600px;  /* Increased width for better layout of additional buttons */
             background-color: #fff;
             padding: 20px;
             border-radius: 10px;
@@ -28,26 +28,32 @@
             height: auto;
             max-width: 200px;
         }
+
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1 class="mb-4">Upload CSV and Convert</h1>
-        <form action="/" method="post" enctype="multipart/form-data" class="mb-3">
+        <h1 class="mb-4">Upload File and Convert</h1>
+        <form action="/view-data" method="post" enctype="multipart/form-data">
             <div class="mb-3">
-                <input class="form-control" type="file" name="file" required>
+                <input class="form-control" type="file" name="file" multiple required>
             </div>
             <div class="mb-3">
                 <select class="form-select" name="format" required>
                     <option value="json">JSON</option>
                     <option value="xml">XML</option>
                     <option value="yaml">YAML</option>
+                    <option value="excel">Excel</option>  <!-- Added Excel option -->
                 </select>
             </div>
             <button type="submit" class="btn btn-primary">Convert</button>
-            <button formaction="/view-json" type="submit" class="btn btn-secondary">View JSON</button>
+            <button type="submit" formaction="/view-data" class="btn btn-info">View Data</button>  <!-- Changed to view-data -->
         </form>
-        <div class="logo text-center">
+        <div class="footer">
             <a href="https://www.promptedllc.com/">
                 <img src="{{ url_for('static', filename='logo.png') }}" alt="Prompted LLC Logo">
             </a>

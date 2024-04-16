@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Data</title>
+    <script>
+        function toggleView(id) {
+            var x = document.getElementById(id);
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Data Preview</h1>
+    <h2>Original Data</h2>
+    <button onclick="toggleView('originalRaw')">Toggle Raw</button>
+    <button onclick="toggleView('originalPretty')">Toggle Pretty</button>
+    <pre id="originalRaw" style="display:none;">{{ original_data }}</pre>
+    <pre id="originalPretty" style="display:none;">{{ original_pretty }}</pre>
+
+    <h2>Converted Data ({{ filename.split('.')[-1].upper() }} to {{ output_format.upper() }})</h2>
+    <button onclick="toggleView('convertedRaw')">Toggle Raw</button>
+    <button onclick="toggleView('convertedPretty')">Toggle Pretty</button>
+    <pre id="convertedRaw" style="display:none;">{{ raw_view }}</pre>
+    <pre id="convertedPretty" style="display:none;">{{ pretty_view }}</pre>
+</body>
+</html>

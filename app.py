@@ -46,6 +46,15 @@ def df_to_xml(df):
             ET.SubElement(record, field).text = str(value)
     return ET.tostring(root, encoding='unicode', method='xml')
 
+@app.route('/view-json', methods=['POST'])
+def view_json():
+    file = request.files['file']
+    if file:
+        data = pd.read_csv(file)
+        response = data.to_json(orient='records', indent=2)
+        return "<pre>" + response + "</pre>"
+    return "No file provided", 400
+
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port, debug=True)

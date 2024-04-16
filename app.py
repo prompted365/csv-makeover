@@ -51,8 +51,9 @@ def view_json():
     file = request.files['file']
     if file:
         data = pd.read_csv(file)
-        response = data.to_json(orient='records', indent=2)
-        return "<pre>" + response + "</pre>"
+        raw_json = data.to_json(orient='records')
+        pretty_json = json.dumps(json.loads(raw_json), indent=2)  # Parsed and pretty-printed JSON
+        return render_template('view_json.html', raw_json=raw_json, pretty_json=pretty_json)
     return "No file provided", 400
 
 if __name__ == '__main__':

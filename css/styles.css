@@ -1,0 +1,547 @@
+body{
+    overflow: hidden;
+  }
+  /*-- -------------------------- -->
+  <---        Core Styles         -->
+  <--- -------------------------- -*/
+  /* Mobile */
+  @media only screen and (min-width: 0rem) {
+    :root {
+      --primary: #4B5F62;
+      --primaryLight: #4B5F62;
+      --secondary: #E4DCCF;
+      --secondaryLight: #FFBA43;
+      --headerColor: #1a1a1a;
+      --bodyTextColor: #4E4B66;
+      --bodyTextColorWhite: #FAFBFC;
+      /* 13px - 16px */
+      --topperFontSize: clamp(0.8125rem, 1.6vw, 1rem);
+      /* 31px - 49px */
+      --headerFontSize: clamp(1.9375rem, 3.9vw, 3.0625rem);
+      --bodyFontSize: 1rem;
+      /* 60px - 100px top and bottom */
+      --sectionPadding: clamp(3.75rem, 7.82vw, 6.25rem) 1rem;
+    }
+    /* open-sans-regular - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: 'assets\fonts\open-sans-v36-latin-regular.woff2' format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+  /* open-sans-700 - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    src: 'assets\fonts\open-sans-v36-latin-700.woff2' format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+  /* open-sans-800 - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 800;
+    src: 'assets\fonts\open-sans-v36-latin-800.woff2' format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      font-size: 100%;
+      font-family: 'Open Sans', Arial, sans-serif;
+      color: var(--bodyTextColor);
+      overflow-x: hidden;
+    }
+    *,
+    *:before,
+    *:after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      transition: background-color 0.3s;
+    }
+    .container {
+      position: relative;
+      width: 92%;
+      margin: auto;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 0;
+      color: var(--headerColor);
+    }
+    p,
+    li,
+    a {
+      font-size: 1rem;
+      line-height: 1.5em;
+      margin: 0;
+    }
+    p,
+    li {
+      color: var(--bodyTextColor);
+    }
+    a:hover,
+    button:hover {
+      cursor: pointer;
+    }
+    .cs-topper {
+      font-size: var(--topperFontSize);
+      line-height: 1.2em;
+      text-transform: uppercase;
+      text-align: inherit;
+      letter-spacing: .1em;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.25rem;
+      display: block;
+    }
+    body.dark-mode .cs-topper {
+      color: var(--secondary);
+    }
+    .cs-title {
+      font-size: var(--headerFontSize);
+      font-weight: 900;
+      line-height: 1.2em;
+      text-align: inherit;
+      max-width: 43.75rem;
+      margin: 0 0 1rem 0;
+      color: var(--headerColor);
+      position: relative;
+    }
+    .cs-text {
+      font-size: var(--bodyFontSize);
+      line-height: 1.5em;
+      text-align: inherit;
+      width: 100%;
+      max-width: 40.625rem;
+      margin: 0;
+      color: var(--bodyTextColor);
+    }
+    .cs-button-solid {
+      font-size: 1rem;
+      /* 46px - 56px */
+      line-height: clamp(2.875rem, 5.5vw, 3.5rem);
+      text-decoration: none;
+      font-weight: 700;
+      text-align: center;
+      margin: 0;
+      color: #fff;
+      min-width: 9.375rem;
+      padding: 0 1.5rem;
+      background-color: var(--primary);
+      display: inline-block;
+      position: relative;
+      z-index: 1;
+      /* prevents padding from adding to the width */
+      box-sizing: border-box;
+    }
+    .cs-button-solid:before {
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 0%;
+      background: #576F72;;
+      opacity: 1;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      transition: width .3s;
+    }
+    .cs-button-solid:hover:before {
+      width: 100%;
+    }
+    .skip {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      z-index: -1111111;
+    }
+  }
+  
+  /*-- -------------------------- -->
+  <---      Core Dark Styles      -->
+  <--- -------------------------- -*/
+  /* Mobile */
+  @media only screen and (min-width: 0rem) {
+    :root {
+      --dark: #121212;
+      --medium: #282828;
+      --accent: #404040;
+      --bodyTextColorWhite: #FAFBFC;
+    }
+    body.dark-mode {
+      background-color: var(--dark);
+    }
+    body.dark-mode p,
+    body.dark-mode li,
+    body.dark-mode h1,
+    body.dark-mode h2,
+    body.dark-mode h3,
+    body.dark-mode h4,
+    body.dark-mode h5,
+    body.dark-mode h6,
+    body.dark-mode .cs-title,
+    body.dark-mode .cs-text,
+    body.dark-mode .cs-li {
+      color: var(--bodyTextColorWhite);
+    }
+    body.dark-mode .light {
+      display: none;
+    }
+    body.dark-mode .dark {
+      display: block !important;
+    }
+    .dark {
+      /* class used to hide elements that only need to be seen when dark mode is enabled */
+      display: none;
+    }
+  }
+  /*-- -------------------------- -->
+  <---      Dark Mode Toggle      -->
+  <--- -------------------------- -*/
+  /* Mobile */
+  @media only screen and (min-width: 0rem) {
+    body.dark-mode #dark-mode-toggle .sun {
+      transform: translate(-50%, -50%);
+      opacity: 1;
+    }
+    body.dark-mode #dark-mode-toggle .moon {
+      transform: translate(-50%, -150%);
+      opacity: 0;
+    }
+  }
+  
+  
+  /*-- -------------------------- -->
+  <---          Banner            -->
+  <--- -------------------------- -*/
+  /* Mobile - 360px */
+  @media only screen and (min-width: 0rem) {
+    #banner-712 {
+      /* 175px - 200px top */
+      padding: clamp(10.9375rem, 10vw, 12.5rem) 1rem 6.25rem;
+      position: relative;
+      z-index: 1;
+    }
+    #banner-712 .cs-container {
+      text-align: center;
+      width: 100%;
+      max-width: 80rem;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    #banner-712 .cs-int-title {
+      /* 39px - 61px */
+      font-size: clamp(2.4375rem, 6.4vw, 3.8125rem);
+      font-weight: 900;
+      line-height: 1.2em;
+      text-align: inherit;
+      margin: 0;
+      color: var(--bodyTextColorWhite);
+      position: relative;
+    }
+    #banner-712 .cs-background {
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+    #banner-712 .cs-background:before {
+      /* background color overlay */
+      content: '';
+      position: absolute;
+      display: block;
+      height: 100%;
+      width: 100%;
+      background: #000;
+      opacity: .75;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+    #banner-712 .cs-background img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      /* Makes img tag act as a background image */
+      object-fit: cover;
+    }
+  }
+  /* Tablet - 768px */
+  @media only screen and (min-width: 48rem) {
+    #banner-712 .cs-background:before {
+      opacity: 1;
+      background: linear-gradient(90.01deg, rgba(0, 0, 0, 0.9) 16.86%, rgba(0, 0, 0, 0) 100%);
+    }
+  }
+  
+  
+  
+  /*-- -------------------------- -->
+  <---          Footer            -->
+  <--- -------------------------- -*/
+  
+  /* Mobile - 360px */
+  @media only screen and (min-width: 0rem) {
+    #cs-footer-1340 {
+        padding: var(--sectionPadding);
+        /* 30px - 50px */
+        padding-bottom: clamp(1.875rem, 5vw, 3.125rem);
+        background-color: #E4DCCF;
+        position: relative;
+    }
+    #cs-footer-1340 .cs-container {
+        width: 100%;
+        max-width: 80rem;
+        margin: auto;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        column-gap: 3rem;
+        row-gap: 2.5rem;
+    }
+    #cs-footer-1340 .cs-logo-group {
+        /* takes up all the space, lets the other ul's wrap below it */
+        width: 100%;
+        position: relative;
+    }
+    #cs-footer-1340 .cs-title {
+        font-size: var(--headerFontSize);
+        font-weight: 900;
+        line-height: 1.2em;
+        text-align: inherit;
+        max-width: 43.75rem;
+        margin: 0 0 1rem 0;
+        color: var(--headerColor);
+        position: relative;
+    }
+    #cs-footer-1340 .cs-title {
+        margin: 0 0 2rem 0;
+        max-width: 23ch;
+    }
+    #cs-footer-1340 .cs-social {
+        display: inline-flex;
+        justify-content: flex-start;
+        gap: 0.5rem;
+    }
+    #cs-footer-1340 .cs-social-link {
+        width: 2rem;
+        height: 2rem;
+        background-color: #f7f7f7;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+        transition:
+            transform 0.3s,
+            background-color 0.3s,
+            color 0.3s;
+    }
+    #cs-footer-1340 .cs-social-link:hover {
+        background-color: var(--primaryLight);
+        transform: translateY(-0.1875rem);
+        color: #fff;
+    }
+    #cs-footer-1340 .cs-social-img {
+        height: 0.75rem;
+        width: auto;
+        display: block;
+    }
+    #cs-footer-1340 .cs-header {
+        font-size: 1.25rem;
+        line-height: 1.5em;
+        font-weight: 700;
+        margin: 0 0 1.5rem 0;
+        color: var(--headerColor);
+        display: block;
+        position: relative;
+    }
+    #cs-footer-1340 .cs-ul {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    #cs-footer-1340 .cs-li {
+        list-style: none;
+    }
+    #cs-footer-1340 .cs-link {
+        /* 14px - 16px */
+        font-size: clamp(0.875rem, 1.5vw, 1rem);
+        text-decoration: none;
+        line-height: 1.5em;
+        text-align: left;
+        color: var(--bodyTextColor);
+        display: inline-flex;
+        align-items: flex-start;
+        gap: 0.5rem;
+        transition: color 0.3s;
+    }
+    #cs-footer-1340 .cs-link:hover {
+        color: var(--primaryLight);
+    }
+    #cs-footer-1340 .cs-icon {
+        width: 1.25rem;
+        height: auto;
+        margin-right: 0.125rem;
+        display: block;
+    }
+    #cs-footer-1340 .cs-bottom {
+        text-align: center;
+        width: 100%;
+        max-width: 80rem;
+        /* 48px - 64px */
+        margin: clamp(1.75rem, 7vw, 4rem) auto 0;
+        /* 28px - 40px */
+        padding-top: clamp(1.75rem, 3vw, 2.5rem);
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem;
+    }
+    #cs-footer-1340 .cs-credit,
+    #cs-footer-1340 .cs-bottom-link,
+    #cs-footer-1340 .cs-credit-link {
+        /* 14px - 16px */
+        font-size: clamp(0.875rem, 1.5vw, 1rem);
+        line-height: 1.5em;
+        text-decoration: none;
+        width: auto;
+        margin: 0;
+        color: var(--bodyTextColor);
+        display: inline-block;
+        position: relative;
+        transition: color 0.3s;
+    }
+    #cs-footer-1340 .cs-credit {
+        width: 100%;
+    }
+    #cs-footer-1340 .cs-credit-link {
+        /* 14px - 16px */
+        font-size: clamp(0.875rem, 1.5vw, 1rem);
+        line-height: 1.5em;
+        text-decoration: none;
+        width: auto;
+        margin: 0;
+        color: inherit;
+        display: inline-block;
+        position: relative;
+    }
+    #cs-footer-1340 .cs-credit-link:hover {
+        color: var(--primary);
+    }
+    #cs-footer-1340 .cs-bottom-links {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #cs-footer-1340 .cs-bottom-link {
+        display: flex;
+        align-items: center;
+    }
+    #cs-footer-1340 .cs-bottom-link:hover {
+        color: var(--primary);
+    }
+    #cs-footer-1340 .cs-bottom-link:last-of-type:before {
+        /* seperator */
+        content: "";
+        width: 1px;
+        height: 0.875rem;
+        margin: 0 0.75rem;
+        background: currentColor;
+        opacity: 1;
+        display: block;
+    }
+  }
+  /* Tablet - 768px */
+  @media only screen and (min-width: 48rem) {
+    #cs-footer-1340 .cs-container {
+        max-width: 80rem;
+        /* 48px - 120px */
+        column-gap: clamp(3rem, 8vw, 7.5rem);
+        flex-wrap: nowrap;
+    }
+    #cs-footer-1340 .cs-logo-group {
+        width: 45%;
+        max-width: 38.875rem;
+        /* pushes the lists away from it and to the right */
+        margin-right: auto;
+    }
+    #cs-footer-1340 .cs-bottom {
+        justify-content: space-between;
+        flex-wrap: nowrap;
+    }
+    #cs-footer-1340 .cs-credit {
+        text-align: left;
+    }
+    #cs-footer-1340 .cs-bottom-links {
+        justify-content: flex-end;
+    }
+  }
+  /* Dark Mode */
+  
+  @media only screen and (min-width: 0rem) {
+    body.dark-mode #cs-footer-1340 {
+        background-color: transparent;
+    }
+    body.dark-mode #cs-footer-1340 .cs-title,
+    body.dark-mode #cs-footer-1340 .cs-header,
+    body.dark-mode #cs-footer-1340 .cs-link,
+    body.dark-mode #cs-footer-1340 .cs-credit,
+    body.dark-mode #cs-footer-1340 .cs-credit-link,
+    body.dark-mode #cs-footer-1340 .cs-bottom-link {
+        color: var(--bodyTextColorWhite);
+    }
+    body.dark-mode #cs-footer-1340 .cs-bottom-link,
+    body.dark-mode #cs-footer-1340 .cs-credit,
+    body.dark-mode #cs-footer-1340 .cs-link {
+        opacity: 0.8;
+    }
+    body.dark-mode #cs-footer-1340 .cs-bottom-link:hover,
+    body.dark-mode #cs-footer-1340 .cs-credit:hover,
+    body.dark-mode #cs-footer-1340 .cs-link:hover {
+        color: var(--primary);
+    }
+    body.dark-mode #cs-footer-1340 .cs-icon,
+    body.dark-mode #cs-footer-1340 .cs-social-img {
+        filter: grayscale(1) brightness(1000%);
+    }
+    body.dark-mode #cs-footer-1340 .cs-social-link {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+    body.dark-mode #cs-footer-1340 .cs-social-link:hover {
+        background-color: var(--primary);
+    }
+    body.dark-mode #cs-footer-1340 .cs-bottom {
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+  
+                                
+  
